@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UtilService } from '../../services/util.service';
+import { StringUtilService } from '../../services/StringUtil.service';
 
 @Component({
   selector: 'string-utils',
@@ -8,5 +8,23 @@ import { UtilService } from '../../services/util.service';
 })
 export class StringUtilsComponent {
 
-  constructor(private util: UtilService) {}
+  constructor(private stringUtil: StringUtilService) {}
+  lowercaseText : string = "";
+  uppercaseText: string = "";
+  concatenateTextOne;
+  concatenateTextTwo;
+  concatenatedTexts: string = ""
+
+  toLowercaseText = function (textToModify : string) {
+    this.lowercaseText = this.stringUtil.toLowercaseText(textToModify);
+  }
+
+  toUppercaseText = function (textToModify : string) {
+    this.uppercaseText = this.stringUtil.toUppercaseText(textToModify);
+  }
+
+  concatenateTexts = function (textOne, textTwo) {
+      this.concatenatedTexts = this.stringUtil.concatenateTexts(textOne, textTwo);
+  }
+
 }
