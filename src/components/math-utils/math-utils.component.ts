@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UtilService } from '../../services/util.service';
+import { MathUtilService } from '../../services/MathUtil.service';
 
 @Component({
   selector: 'math-utils',
@@ -7,6 +7,15 @@ import { UtilService } from '../../services/util.service';
   styleUrls: ['./math-utils.component.css']
 })
 export class MathUtilsComponent {
+  constructor(private mathUtil: MathUtilService) {}
 
-  constructor(private util: UtilService) {}
+  addFirstvalue : number;
+  addSecondValue : number;
+  addedValue : number;
+
+    add = function (firstValue: number, secondValue: number) {
+      console.log(firstValue);
+      this.addedValue = this.mathUtil.add(firstValue, secondValue);
+    }
+
 }
