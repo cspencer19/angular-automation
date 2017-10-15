@@ -14,7 +14,6 @@ export class MathUtilsComponent {
   addedValue : number;
 
     add = function (firstValue: number, secondValue: number) {
-      console.log(firstValue);
       this.addedValue = this.mathUtil.add(firstValue, secondValue);
     }
 
