@@ -18,7 +18,7 @@ import { StringUtilsComponent } from '../components/string-utils/string-utils.co
     FormsModule
   ],
   providers: [
-    StringUtilService, 
+    StringUtilService,
     MathUtilService
   ],
   bootstrap: [AppComponent]
