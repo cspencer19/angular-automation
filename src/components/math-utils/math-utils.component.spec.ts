@@ -28,6 +28,23 @@ describe('Math utils Component', () => {
     expect(mathUtils).toBeTruthy();
   }));
 
+  // Standard Matcher Example
+  it('should accurately add two numbers together', async(() => {
+    // Create the compiled component pertinant to our test
+    const fixture = TestBed.createComponent(MathUtilsComponent);
+
+    // Get an instance of the MathUtilsService
+    const mathUtilsService = fixture.debugElement.injector.get(MathUtilService);
+
+    // Declare two numbers that can only reach a third number when added.
+    let numberOne = 10;
+    let numberTwo = 1;
+    let numberThree = 11;
+
+    // Call the add method on the mathUtilsComponent, and see that the final result returns
+    expect(mathUtilsService.add(numberOne, numberTwo)).toEqual(numberThree);
+  }));
+
 
   // Spy Example
   it('should have called the MathUtilsService when MathUtils.add is called', async(() => {
@@ -73,23 +90,6 @@ describe('Math utils Component', () => {
 
     // Check that the mathUtilsComponent is correctly assigning the returned value to the right variable
     expect(mathUtils.addedValue).toEqual(numberToReturn);
-  }));
-
-  // Standard Matcher Example
-  it('should accurately add two numbers together', async(() => {
-    // Create the compiled component pertinant to our test
-    const fixture = TestBed.createComponent(MathUtilsComponent);
-
-    // Get an instance of the MathUtilsService
-    const mathUtilsService = fixture.debugElement.injector.get(MathUtilService);
-
-    // Declare two numbers that can only reach a third number when added.
-    let numberOne = 10;
-    let numberTwo = 1;
-    let numberThree = 11;
-
-    // Call the add method on the mathUtilsComponent, and see that the final result returns
-    expect(mathUtilsService.add(numberOne, numberTwo)).toEqual(numberThree);
   }));
 
   // Custom Matcher Example
