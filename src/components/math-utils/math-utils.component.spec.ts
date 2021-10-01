@@ -1,4 +1,5 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { MathUtilsComponent } from './math-utils.component';
 import { FormsModule } from '@angular/forms';
 import { MathUtilService } from '../../services/MathUtil.service';
@@ -6,7 +7,7 @@ import { MockMathUtilService } from '../../../mocks/MathUtils.service.mock';
 
 describe('Math utils Component', () => {
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         MathUtilsComponent
@@ -22,14 +23,26 @@ describe('Math utils Component', () => {
     // compileComponents compiles all the components so they are ready to be created as needed
   }));
 
-  it('should create the Math Utils Component', async(() => {
+  function add(x,y){
+    return x + y;
+  }
+
+  it('Gets the sum of 2 numbers', () => {
+    const num1 = 2;
+    const num2 = 3;
+
+    const result = add(num1, num2)
+    expect(result + 1).toBe(6);
+  });
+
+  it('should create the Math Utils Component', waitForAsync(() => {
     const fixture = TestBed.createComponent(MathUtilsComponent);
     const mathUtils = fixture.debugElement.componentInstance;
     expect(mathUtils).toBeTruthy();
   }));
 
   // Standard Matcher Example
-  it('should accurately add two numbers together', async(() => {
+  it('should accurately add two numbers together', waitForAsync(() => {
     // Create the compiled component pertinant to our test
     const fixture = TestBed.createComponent(MathUtilsComponent);
 
@@ -47,7 +60,7 @@ describe('Math utils Component', () => {
 
 
   // Spy Example
-  it('should have called the MathUtilsService when MathUtils.add is called', async(() => {
+  it('should have called the MathUtilsService when MathUtils.add is called', waitForAsync(() => {
     // Create the compiled component pertinant to our test
     const fixture = TestBed.createComponent(MathUtilsComponent);
 
@@ -69,7 +82,7 @@ describe('Math utils Component', () => {
   }));
 
   // Spy Return Value Example
-  it('should correctly assign the returned value to the addedValue variable', async(() => {
+  it('should correctly assign the returned value to the addedValue variable', waitForAsync(() => {
     // Create the compiled component pertinant to our test
     const fixture = TestBed.createComponent(MathUtilsComponent);
 
